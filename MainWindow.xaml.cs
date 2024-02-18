@@ -24,10 +24,10 @@ namespace VinylRecordsApplication_Graf
         {
             InitializeComponent();
         }
-
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        
+        public void OpenPage(Page pages)
         {
-
+            frame.Navigate(pages);
         }
     }
 }
