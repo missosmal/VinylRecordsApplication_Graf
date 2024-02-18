@@ -24,5 +24,10 @@ namespace VinylRecordsApplication_Graf
         {
             InitializeComponent();
         }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
