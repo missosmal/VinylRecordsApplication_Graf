@@ -34,6 +34,20 @@
                             <DropShadowEffect BlurRadius="10" Color="Black" Direction="315" ShadowDepth="2" Opacity="0.5"/>
                         </TextBox.Effect>
                     </TextBox>
+                    <Label Content="#Сокращенное название: " Margin="10,0,9.8,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <TextBox x:Name="tbSubname" Margin="10,25,9.8,0" Height="25" TextWrapping="Wrap" Text="" Padding="10,0" Grid.Column="1"
+                             VerticalAlignment="Top" VerticalContentAlignment ="Center">
+                        <TextBox.Effect>
+                            <DropShadowEffect BlurRadius="10" Color="Black" Direction="315" ShadowDepth="2" Opacity="0.5"/>
+                        </TextBox.Effect>
+                    </TextBox>
+                    <Button x:Name="addBth" Content="Добавить" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom"
+                                Width="100" Grid.Column="2" Height="25" BorderBrush="#FFFF9800" Background="#FFFF9800"
+                                Foreground="White" FontWeight="Bold" Click="AddState">
+                        <Button.Effect>
+                            <DropShadowEffect BlurRadius="10" Color="Black" Direction="315" ShadowDepth="2" Opacity="0.5"/>
+                        </Button.Effect>
+                    </Button>
                 </Grid>
             </Grid>
         </Border>
