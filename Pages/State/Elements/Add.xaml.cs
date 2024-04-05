@@ -13,21 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace VinylRecordsApplication_Graf.Pages.State
+namespace VinylRecordsApplication_Graf.Pages.State.Elements
 {
     /// <summary>
-    /// Логика взаимодействия для Main.xaml
+    /// Логика взаимодействия для Add.xaml
     /// </summary>
-    public partial class Main : Page
+    public partial class Add : Page
     {
-        public IEnumerable<Classes.State> AllState = Classes.State.AllState();
-        public Main()
+        public Add()
         {
             InitializeComponent();
-            foreach(var state in AllState)
-            {
-                stateParent.Children.Add(new Pages.State.Elements.State(State, this));
-            }
         }
     }
 }

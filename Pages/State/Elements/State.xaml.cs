@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Linq;
+
 
 namespace VinylRecordsApplication_Graf.Pages.State.Elements
 {
@@ -20,9 +22,35 @@ namespace VinylRecordsApplication_Graf.Pages.State.Elements
     /// </summary>
     public partial class State : UserControl
     {
-        public State()
+        Classes.State state;
+        Pages.State.Main main;
+        public State(Classes.State state, Pages.State.Main main)
         {
             InitializeComponent();
+            this.state = state;
+            this.main = main;
+            tbName.Text = this.state.Name;
+            tbSubname.Text = this.state.Subname;
+            tbDescription.Text = this.state.Description;
+        }
+        private void EditState(object sender, RoutedEventArgs e) =>
+            MainWindow.mainWindow.OpenPage(new Pages.State.Add(state));
+        private void DeleteState(object sender, RoutedEventArgs e)
+        {
+            if(MessageBox.Show($"Удалить состоение: {this.state.Name}?", "Уведомление", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                IEnumerable<Classes.Record> AllRecord = Classes.Record.AllRecords();
+                if (AllRecord.Where(x => x.IdState == state.Id).Count() > 0) ;
+                {
+                    MessageBox.Show($"Состояние {this.state.Name} невозможно удалитью. Для начала удалите зависимости.", "Уведомление");
+                }
+                else
+                {
+                    this.state.Delete();
+                    main.stateParent.Children.Remove(this);
+                    MessageBox.Show($"Состояние {this.state.Name} успешно удалена.", "Уведомление");
+                }
+            }
         }
     }
 }
